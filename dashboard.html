@@ -4,7 +4,25 @@
   <title>Dashboard</title>
 </head>
 <body>
-  <h1>Welcome to Dashboard</h1>
-  <p>You are logged in! thank you so mutch</p>
+  <h1>Welcome to Dashboard 🎉</h1>
+
+  <p>Uri muri dashboard yawe!</p>
+
+  <!-- 🔹 Button ijya kuri Register -->
+  <button onclick="goToRegister()">Register New User</button>
+  <br><br>
+
+  <!-- 🔹 Logout button -->
+  <button onclick="logout()">Logout</button>
+
+  <script>
+    function goToRegister() {
+      window.location.href = "register.html";
+    }
+
+    function logout() {
+      window.location.href = "login.html";
+    }
+  </script>
 </body>
 </html>
