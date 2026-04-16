@@ -21,12 +21,12 @@
       const user = document.getElementById("username").value;
       const pass = document.getElementById("password").value;
 
-      // Username na password zemewe
       const correctUser = "admin";
       const correctPass = "1234";
 
       if (user === correctUser && pass === correctPass) {
-        document.getElementById("message").innerHTML = "Login successful ✅";
+        // 👉 Jya kuri dashboard
+        window.location.href = "dashboard.html";
       } else {
         document.getElementById("message").innerHTML = "Wrong username or password ❌";
       }
