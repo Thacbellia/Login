@@ -5,8 +5,33 @@
 </head>
 <body>
   <h1>Login Page</h1>
-  <input type="text" placeholder="Username" />
-  <input type="password" placeholder="Password" />
-  <button>Login</button>
+
+  <input type="text" id="username" placeholder="Username" />
+  <br><br>
+
+  <input type="password" id="password" placeholder="Password" />
+  <br><br>
+
+  <button onclick="login()">Login</button>
+
+  <p id="message"></p>
+
+  <script>
+    function login() {
+      const user = document.getElementById("username").value;
+      const pass = document.getElementById("password").value;
+
+      // Username na password zemewe
+      const correctUser = "admin";
+      const correctPass = "1234";
+
+      if (user === correctUser && pass === correctPass) {
+        document.getElementById("message").innerHTML = "Login successful ✅";
+      } else {
+        document.getElementById("message").innerHTML = "Wrong username or password ❌";
+      }
+    }
+  </script>
+
 </body>
 </html>
