@@ -2,12 +2,77 @@
 <html>
 <head>
   <title>Register</title>
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      margin-top: 30px;
+    }
+    input {
+      padding: 10px;
+      margin: 8px;
+      width: 260px;
+    }
+    button {
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-  <h1>Create Account</h1>
-  <input type="text" placeholder="Username" /><br/><br/>
-  <input type="email" placeholder="Email" /><br/><br/>
-  <input type="password" placeholder="Password" /><br/><br/>
-  <button>Register</button>
+
+  <h1>Registration Form</h1>
+
+  <input type="text" id="names" placeholder="Full Names" /><br>
+  <input type="text" id="regNumber" placeholder="Registration Number" /><br>
+  <input type="text" id="district" placeholder="District" /><br>
+  <input type="text" id="province" placeholder="Province" /><br>
+
+  <input type="text" id="username" placeholder="Username" /><br>
+  <input type="password" id="password" placeholder="Password" /><br>
+  <input type="password" id="confirmPassword" placeholder="Confirm Password" /><br>
+
+  <button onclick="register()">Register</button>
+
+  <p id="message"></p>
+
+  <p>Already have an account? <a href="login.html">Login</a></p>
+
+  <script>
+    function register() {
+      const names = document.getElementById("names").value;
+      const regNumber = document.getElementById("regNumber").value;
+      const district = document.getElementById("district").value;
+      const province = document.getElementById("province").value;
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+      const confirmPassword = document.getElementById("confirmPassword").value;
+
+      if (!names || !regNumber || !district || !province || !username || !password || !confirmPassword) {
+        document.getElementById("message").innerHTML = "Please fill all fields ❌";
+        return;
+      }
+
+      if (password !== confirmPassword) {
+        document.getElementById("message").innerHTML = "Passwords do not match ❌";
+        return;
+      }
+
+      // Save data
+      localStorage.setItem("names", names);
+      localStorage.setItem("regNumber", regNumber);
+      localStorage.setItem("district", district);
+      localStorage.setItem("province", province);
+      localStorage.setItem("username", username);
+      localStorage.setItem("password", password);
+
+      document.getElementById("message").innerHTML = "Registration successful ✅";
+
+      setTimeout(() => {
+        window.location.href = "login.html";
+      }, 1500);
+    }
+  </script>
+
 </body>
 </html>
